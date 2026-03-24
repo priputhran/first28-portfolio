@@ -99,16 +99,9 @@ nav {
   padding: 0 clamp(1.5rem, 5vw, 4rem);
 }
 .nav-logo {
-  display: flex; align-items: center; gap: 10px;
   font-family: var(--serif); font-size: 1.1rem; color: var(--ink);
-  text-decoration: none;
+  text-decoration: none; letter-spacing: -0.01em;
 }
-.nav-logo-mark {
-  width: 32px; height: 32px; border-radius: 8px;
-  background: var(--teal-lt); border: 1px solid #9FE1CB;
-  display: flex; align-items: center; justify-content: center;
-}
-.nav-logo-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--teal); }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { font-size: 0.85rem; color: var(--ink-3); font-weight: 400; transition: color .2s; }
 .nav-links a:hover { color: var(--teal); text-decoration: none; }
@@ -170,9 +163,6 @@ nav {
 .pscreen { display: none; }
 .pscreen.active { display: block; }
 
-.p-logo-wrap { display: flex; justify-content: center; margin-bottom: 14px; padding-top: 6px; }
-.p-logo { width: 48px; height: 48px; border-radius: 12px; background: var(--teal-lt); border: 1px solid #9FE1CB; display: flex; align-items: center; justify-content: center; }
-.p-logo-dot { width: 22px; height: 22px; border-radius: 50%; background: var(--teal); }
 .p-h1 { font-family: var(--serif); font-size: 18px; text-align: center; color: var(--ink); margin-bottom: 8px; }
 .p-sub { font-size: 11px; color: var(--ink-3); text-align: center; line-height: 1.5; margin-bottom: 12px; }
 .p-disclaimer { background: var(--teal-lt); border-radius: 8px; padding: 9px 11px; margin-bottom: 14px; }
@@ -508,7 +498,6 @@ footer p { font-size: 0.82rem; color: var(--ink-4); margin: 0; }
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-mark"><div class="nav-logo-dot"></div></div>
       First 28
     </a>
     <ul class="nav-links">
@@ -519,7 +508,7 @@ footer p { font-size: 0.82rem; color: var(--ink-4); margin: 0; }
       <li><a href="#build">Build</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
     </ul>
-    <a href="https://github.com/YOUR_USERNAME/first28" class="nav-cta" target="_blank" rel="noopener">
+    <a href="https://github.com/priputhran/first28" class="nav-cta" target="_blank" rel="noopener">
       View on GitHub ↗
     </a>
   </div>
@@ -545,7 +534,7 @@ footer p { font-size: 0.82rem; color: var(--ink-4); margin: 0; }
           This is what that idea becomes in 2026.
         </p>
         <div class="hero-actions">
-          <a href="https://github.com/YOUR_USERNAME/first28" class="btn-primary" target="_blank" rel="noopener">
+          <a href="https://github.com/priputhran/first28" class="btn-primary" target="_blank" rel="noopener">
             View codebase ↗
           </a>
           <a href="#research" class="btn-secondary">Read the case study ↓</a>
@@ -561,7 +550,7 @@ footer p { font-size: 0.82rem; color: var(--ink-4); margin: 0; }
 
               <!-- Screen 0: Welcome -->
               <div class="pscreen active" id="ps-0">
-                <div class="p-logo-wrap"><div class="p-logo"><div class="p-logo-dot"></div></div></div>
+                <div style="padding-top:10px;"></div>
                 <div class="p-h1">First 28</div>
                 <div class="p-sub">Helps you notice when something needs attention - and know exactly what to do.</div>
                 <div class="p-disclaimer"><p>This app is not a doctor. It works alongside your care team, not instead of them.</p></div>
@@ -802,7 +791,7 @@ footer p { font-size: 0.82rem; color: var(--ink-4); margin: 0; }
         </p>
         <div class="pullquote">
           <p>"The original decision tree was the right instinct. The 2026 version keeps that auditable logic at its core - the LLM only narrates what the rules have already decided."</p>
-          <cite>On the design of triage_rules.py</cite>
+          <cite>On the design of the triage engine</cite>
         </div>
         <div class="code-block">
 <span class="code-comment"># System prompt - clinician sign-off required to change</span>
@@ -931,23 +920,23 @@ footer p { font-size: 0.82rem; color: var(--ink-4); margin: 0; }
         <div style="margin-bottom:1.5rem;">
           <div style="font-size:0.78rem;font-weight:500;color:var(--ink-4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Backend - Python / FastAPI</div>
           <div class="stack-grid">
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>triage_rules.py</strong><span>15 rules evolved from the 2018 decision table</span></div></div>
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>llm_prompt.py</strong><span>System prompt + EPDS Q10 bypass</span></div></div>
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>output_validator.py</strong><span>30+ banned patterns, pre-render check</span></div></div>
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>test_redteam.py</strong><span>18 adversarial safety tests in CI</span></div></div>
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>db_models.py</strong><span>SQLAlchemy ORM, FHIR-compatible schema</span></div></div>
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>routes/triage.py</strong><span>Full pipeline: input → engine → LLM → validate</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>Triage engine</strong><span>15 explicit rules evolved from the 2018 decision table - deterministic, auditable, version-controlled</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>LLM pipeline</strong><span>Structured prompt system that keeps the AI in a narrator role - it translates signal scores, never makes decisions</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>Output validator</strong><span>Automated check that runs before anything reaches the screen - blocks diagnostic language, false reassurance, and medication references</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>Safety test suite</strong><span>18 adversarial tests that run on every code change - each one documents a known failure mode the system must never repeat</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>Data layer</strong><span>Structured database schema built to be compatible with FHIR - the health data standard used by hospital electronic records systems</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>API routes</strong><span>The full check-in pipeline: structured input from the app - triage engine - LLM narration - validation - response to the mother</span></div></div>
           </div>
         </div>
         <div>
           <div style="font-size:0.78rem;font-weight:500;color:var(--ink-4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Mobile - React Native / Expo</div>
           <div class="stack-grid">
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>tokens.ts</strong><span>Design system with clinical tier colours</span></div></div>
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>appStore.ts</strong><span>Zustand state + offline queue</span></div></div>
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>CheckInScreen.tsx</strong><span>One question at a time, structured input</span></div></div>
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>TriageResultScreen.tsx</strong><span>Tier-aware result with persistent disclaimer</span></div></div>
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>Onboarding (6 screens)</strong><span>Welcome → consent in &lt;3 min</span></div></div>
-            <div class="stack-item"><div class="stack-dot"></div><div><strong>ci.yml</strong><span>GitHub Actions: pytest + ruff + TypeScript</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>Design system</strong><span>Colour tokens, spacing, and typography built around the three triage tiers - green, amber, and red each carry a distinct visual language</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>Offline-first state</strong><span>All data is stored locally and syncs when connectivity returns - the app works fully without an internet connection</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>Check-in flow</strong><span>One structured question at a time - tap options only, no free text, completable one-handed in under 60 seconds</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>Result screen</strong><span>Tier-aware layout that adapts to green, amber, or red - the emergency screen strips everything except a single call button</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>Onboarding</strong><span>Six screens from welcome to first check-in, completable in under 3 minutes - care team and consent steps are skippable without losing core functionality</span></div></div>
+            <div class="stack-item"><div class="stack-dot"></div><div><strong>CI pipeline</strong><span>Automated checks on every commit - Python tests, linting, and TypeScript type checking all run before any change can be merged</span></div></div>
           </div>
         </div>
       </div>
@@ -1024,7 +1013,7 @@ footer p { font-size: 0.82rem; color: var(--ink-4); margin: 0; }
     <h2>Read the full codebase</h2>
     <p>48 files. Python backend, React Native frontend, CI pipeline, red-team test suite, and six years of thinking about what this product could become.</p>
     <div class="cta-actions">
-      <a href="https://github.com/YOUR_USERNAME/first28" class="btn-white" target="_blank" rel="noopener">
+      <a href="https://github.com/priputhran/first28" class="btn-white" target="_blank" rel="noopener">
         View on GitHub ↗
       </a>
       <a href="https://www.linkedin.com/in/priyankaputhran/" class="btn-outline-white" target="_blank" rel="noopener">Connect on LinkedIn</a>
@@ -1042,7 +1031,7 @@ footer p { font-size: 0.82rem; color: var(--ink-4); margin: 0; }
       <p>First 28 - PM Case Study - Pham, Bluett, Puthran et al., <a href="https://iproc.org/2018/2/e11740/" target="_blank" rel="noopener">iProceedings 2018</a></p>
       <ul class="footer-links">
         <li><a href="https://iproc.org/2018/2/e11740/" target="_blank" rel="noopener">Original paper ↗</a></li>
-        <li><a href="https://github.com/YOUR_USERNAME/first28" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="https://github.com/priputhran/first28" target="_blank" rel="noopener">GitHub ↗</a></li>
         <li><a href="mailto:priyankanputhran@gmail.com">Contact</a></li>
       </ul>
     </div>
